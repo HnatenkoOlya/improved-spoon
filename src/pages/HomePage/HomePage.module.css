@@ -1,0 +1,46 @@
+.divHome {
+  width: 595px;
+  height: 246px;
+}
+.title {
+  font-family: Inter;
+  font-weight: 600;
+  font-size: 80px;
+  line-height: 82px;
+  letter-spacing: -2%;
+  margin: 0;
+}
+.span {
+  font-family: Inter;
+  font-weight: 600;
+  font-style: Italic;
+  font-size: 80px;
+  line-height: 82px;
+  letter-spacing: -2%;
+  color: #3470ff;
+}
+.p {
+  font-family: Inter;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -2%;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.link {
+  width: 235.83px;
+  height: 60px;
+  padding: 15px;
+  background-color: #3470ff;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.link:hover {
+  background-color: #255ee8;
+}
