@@ -1,37 +1,39 @@
 .divHome {
+  display: flex;
+  align-items: center;
+  gap: 125px;
+}
+.divContent {
   width: 595px;
-  height: 246px;
 }
 .title {
-  font-family: Inter;
   font-weight: 600;
   font-size: 80px;
   line-height: 82px;
-  letter-spacing: -2%;
+  letter-spacing: -0.02em;
   margin: 0;
 }
 .span {
-  font-family: Inter;
   font-weight: 600;
-  font-style: Italic;
+  font-style: italic;
   font-size: 80px;
   line-height: 82px;
-  letter-spacing: -2%;
+  letter-spacing: -0.02em;
   color: #3470ff;
 }
 .p {
-  font-family: Inter;
   font-weight: 500;
-  font-style: Medium;
+  font-style: normal;
   font-size: 18px;
   line-height: 24px;
-  letter-spacing: -2%;
+  letter-spacing: -0.02em;
   margin-top: 20px;
   margin-bottom: 40px;
 }
 .link {
-  width: 235.83px;
-  height: 60px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 15px;
   background-color: #3470ff;
   color: white;
@@ -40,7 +42,17 @@
   border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.3s;
+  /*width: 235.83px;
+  height: 60px;*/
 }
 .link:hover {
   background-color: #255ee8;
+}
+.divImage img {
+  width: 464px;
+  height: 526px;
+  border-radius: 10px;
+}
+.divImage {
+  margin-top: 78px;
 }
