@@ -1,11 +1,9 @@
-function Sorted({ sortedDate, onChange }) {
+function Filtered({ filteredDate, onChange }) {
   return (
     <div>
-      <h6>Sorting Options</h6>
-      <select value={sortedDate} onChange={(e) => onChange(e.target.value)}>
+      <h6>Filtering Options</h6>
+      <select value={filteredDate} onChange={(e) => onChange(e.target.value)}>
         <option value="Show all">Show all</option>
-        <option value="A to Z">A to Z</option>
-        <option value="Z to A">Z to A</option>
         <option value="Less than 130$">Less than 130$</option>
         <option value="Greater than 120$">Greater than 120$</option>
         <option value="Not popular">Not popular</option>
@@ -14,4 +12,4 @@ function Sorted({ sortedDate, onChange }) {
     </div>
   );
 }
-export default Sorted;
+export default Filtered;
