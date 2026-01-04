@@ -1,6 +1,7 @@
 import { useState } from "react";
 import css from "./PsychologistCard.module.css";
 import Modal from "../Modal/Modal.jsx";
+import AppointmentForm from "../AppointmentForm/AppointmentForm.jsx";
 
 function PsychologistsCard({ psychologist }) {
   const [readMore, setReadMore] = useState(false);
@@ -34,12 +35,13 @@ function PsychologistsCard({ psychologist }) {
                 <p>{review.comment}</p>
               </li>
             ))}
-            <button onClick={() => setIsOpen(true)}>
-              Make an appointment
-            </button>
+            <button onClick={() => setIsOpen(true)}>Make an appointment</button>
             {isOpen && (
               <Modal onClose={() => setIsOpen(false)}>
-                <p>Form</p>
+                <AppointmentForm
+                  psychologist={psychologist}
+                  onSuccess={() => setIsOpen(false)}
+                />
               </Modal>
             )}
           </ul>
