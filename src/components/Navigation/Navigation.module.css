@@ -1,0 +1,15 @@
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-right: 240px;
+  color: black;
+}
+.text {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  color: black;
+}

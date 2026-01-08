@@ -1,0 +1,33 @@
+.header {
+  padding: 24px 128px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 96px;
+  z-index: 1000;
+  box-sizing: border-box;
+  background-color: white;
+  border-bottom: 2px solid #1313101a;
+}
+.headContent {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.logo {
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  color: black;
+  margin-right: 130px;
+}
+.span {
+  color: #3470ff;
+}

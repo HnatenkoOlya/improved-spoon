@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   gap: 125px;
+  margin-top: 88px;
 }
 .divContent {
   width: 595px;
@@ -34,16 +35,22 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 15px;
+  width: 235px;
+  height: 60px;
+  gap: 18px;
+  border-radius: 30px;
+  padding: 18px 50px;
   background-color: #3470ff;
   color: white;
   font-size: 20px;
   border: none;
-  border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.3s;
-  /*width: 235.83px;
-  height: 60px;*/
+  font-family: Inter;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 24px;
+  letter-spacing: -0.01em;
 }
 .link:hover {
   background-color: #255ee8;

@@ -6,7 +6,7 @@ import "./App.css";
 import Header from "./components/Header/Header.jsx";
 import { useState } from "react";
 import AuthModal from "./components/AuthModal/AuthModal.jsx";
-
+import "./App.css";
 function App() {
   const [isAuth, setIsAuth] = useState(null);
   const routes = [
@@ -24,7 +24,7 @@ function App() {
     },
   ];
   return (
-    <div>
+    <div className="container">
       <BrowserRouter>
         <Header
           onLogin={() => setIsAuth("login")}

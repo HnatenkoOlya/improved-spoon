@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import arrowIcon from "../../assets/icons/Arrow 16.svg";
 import css from "./HomePage.module.css";
 function HomePage() {
   return (
@@ -14,6 +15,7 @@ function HomePage() {
         </p>
         <Link to="/psychologists" className={css.link}>
           Get started
+          <img src={arrowIcon} alt="Arrow" className={css.arrowIcon} />
         </Link>
       </div>
       <div className={css.divImage}>
