@@ -5,8 +5,8 @@ import RegisterForm from "./RegisterForm/RegisterForm";
 function AuthModal({ mode, onClose }) {
   return (
     <Modal onClose={onClose}>
-      {mode === "login" && <LoginForm />}
-      {mode === "register" && <RegisterForm />}
+      {mode === "login" && <LoginForm onSuccess={onClose} />}
+      {mode === "register" && <RegisterForm onSuccess={onClose} />}
     </Modal>
   );
 }

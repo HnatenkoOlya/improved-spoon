@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import { useContext } from "react";
+import { AuthContext } from "../../../context/AuthContext";
 
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -12,6 +14,7 @@ const schema = Yup.object().shape({
 });
 
 function LoginForm({ onSuccess }) {
+  const { login } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -24,7 +27,7 @@ function LoginForm({ onSuccess }) {
     },
   });
   const onSubmit = (data) => {
-    console.log("login data", data);
+    login(data);
     onSuccess();
   };
 

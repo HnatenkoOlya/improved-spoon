@@ -7,6 +7,7 @@ import Header from "./components/Header/Header.jsx";
 import { useState } from "react";
 import AuthModal from "./components/AuthModal/AuthModal.jsx";
 import "./App.css";
+
 function App() {
   const [isAuth, setIsAuth] = useState(null);
   const routes = [
