@@ -3,6 +3,7 @@ import PsychologistsCard from "../../components/PsychologistCard/PsychologistCar
 import { useState } from "react";
 import Sorted from "../../components/Sorted/Sorted.jsx";
 import Filtered from "../../components/Filtered/Filtered.jsx";
+import css from "./PsychologistsPage.module.css";
 
 function PsychologistsPage() {
   const [sorted, setSorted] = useState("Show all");
@@ -63,9 +64,17 @@ function PsychologistsPage() {
     return true;
   });*/
   return (
-    <div>
-      <Sorted sortedDate={sorted} onChange={setSorted} />
-      <Filtered filteredDate={filtered} onChange={setFilterd} />
+    <div className={css.psycContainer}>
+      <Sorted
+        sortedDate={sorted}
+        onChange={setSorted}
+        className={css.psycContainer}
+      />
+      <Filtered
+        filteredDate={filtered}
+        onChange={setFilterd}
+        className={css.psycContainer}
+      />
       <ul>
         {filteredPsychologists.slice(0, count).map((psychologist) => (
           <li key={psychologist.id}>
