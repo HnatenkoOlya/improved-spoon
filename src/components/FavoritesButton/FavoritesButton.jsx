@@ -10,8 +10,10 @@ function FavoritesButton({ psychologist }) {
   const { isAuth } = useContext(AuthContext);
 
   const handleClick = () => {
+    console.log("ADD TO FAVORITES:", psychologist.id, psychologist.name);
+
     if (!isAuth) {
-      toast.info("Please log in to add to favorites");
+      toast.error("Please log in to add to favorites");
       return;
     }
     toggleFavorites(psychologist);

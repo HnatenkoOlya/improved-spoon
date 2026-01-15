@@ -7,6 +7,7 @@ import Header from "./components/Header/Header.jsx";
 import { useState } from "react";
 import AuthModal from "./components/AuthModal/AuthModal.jsx";
 import "./App.css";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const [isAuth, setIsAuth] = useState(null);
@@ -37,6 +38,7 @@ function App() {
             <Route path={route.path} element={route.element}></Route>
           ))}
         </Routes>
+        <Toaster />
       </BrowserRouter>
     </div>
   );

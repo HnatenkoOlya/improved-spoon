@@ -10,7 +10,12 @@ function PsychologistsPage() {
   const [filtered, setFilterd] = useState("Show all");
   const [count, setCount] = useState(3);
 
-  const sortedPsychologists = psychologists.toSorted((a, b) => {
+  const psychologistsWithId = psychologists.map((p, index) => ({
+    ...p,
+    id: p.id ?? `${p.name}-${index}`,
+  }));
+
+  const sortedPsychologists = psychologistsWithId.toSorted((a, b) => {
     if (sorted === "A to Z") {
       return a.name.localeCompare(b.name);
     }
@@ -78,10 +83,7 @@ function PsychologistsPage() {
       <ul>
         {filteredPsychologists.slice(0, count).map((psychologist) => (
           <li key={psychologist.id}>
-            <PsychologistsCard
-              key={psychologist.id}
-              psychologist={psychologist}
-            />
+            <PsychologistsCard psychologist={psychologist} />
           </li>
         ))}
       </ul>
