@@ -82,7 +82,7 @@ function PsychologistsPage() {
       />
       <ul>
         {filteredPsychologists.slice(0, count).map((psychologist) => (
-          <li key={psychologist.id}>
+          <li key={psychologist.id} className={css.psycItem}>
             <PsychologistsCard psychologist={psychologist} />
           </li>
         ))}
