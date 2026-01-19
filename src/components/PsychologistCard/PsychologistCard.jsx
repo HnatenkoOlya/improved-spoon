@@ -4,6 +4,7 @@ import Modal from "../Modal/Modal.jsx";
 import AppointmentForm from "../AppointmentForm/AppointmentForm.jsx";
 //import heart from "../../assets/icons/Property 1=Normal.svg";
 import FavoritesButton from "../FavoritesButton/FavoritesButton.jsx";
+import star from "../../assets/icons/Star 2.svg";
 
 function PsychologistsCard({ psychologist }) {
   const [readMore, setReadMore] = useState(false);
@@ -50,15 +51,19 @@ function PsychologistsCard({ psychologist }) {
             {readMore ? "Read less" : "Read more"}
           </button>
           {readMore && (
-            <ul>
+            <ul className={css.reviewsList}>
               {psychologist.reviews.map((review, index) => (
-                <li key={index}>
-                  <p>{review.reviewer}</p>
-                  <p>{review.rating}</p>
-                  <p>{review.comment}</p>
+                <li key={index} className={css.reviewItem}>
+                  <p className={css.reviewer}>{review.reviewer}</p>
+                  <img src={star} alt="Star" className={css.starIcon} />
+                  <p className={css.rating}>{review.rating}</p>
+                  <p className={css.comment}>{review.comment}</p>
                 </li>
               ))}
-              <button onClick={() => setIsOpen(true)}>
+              <button
+                onClick={() => setIsOpen(true)}
+                className={css.appointmentBtn}
+              >
                 Make an appointment
               </button>
               {isOpen && (
@@ -74,8 +79,14 @@ function PsychologistsCard({ psychologist }) {
         </div>
       </div>
       <div className={css.price}>
+        <img src={star} alt="Star" className={css.starIcon} />
         <p>Rating: {psychologist.rating}</p>
-        <p>Price/1 hour: {psychologist.price_per_hour}</p>
+        <p>
+          Price/1 hour:{" "}
+          <span className={css.colorPrice}>
+            {psychologist.price_per_hour}$
+          </span>{" "}
+        </p>
         <FavoritesButton psychologist={psychologist} />
       </div>
     </div>

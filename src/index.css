@@ -9,11 +9,21 @@ a {
 body {
   margin: 0 auto;
   font-family: "Inter", sans-serif;
-  background-color: #3470ff33;
+  background-color: #f3f3f3;
 }
 ul,
 ol {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
 }

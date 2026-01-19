@@ -1,0 +1,27 @@
+.sorted {
+  width: 226px;
+}
+.sortedTitle {
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #8a8a89;
+}
+.sortedSelect {
+  width: 226px;
+  border-radius: 14px;
+  padding: 16px 18px;
+  background-color: #3470ff;
+  color: #fbfbfb;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  border: none;
+}
+.sortedOption {
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 14px;
+}

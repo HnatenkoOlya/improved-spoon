@@ -70,16 +70,18 @@ function PsychologistsPage() {
   });*/
   return (
     <div className={css.psycContainer}>
-      <Sorted
-        sortedDate={sorted}
-        onChange={setSorted}
-        className={css.psycContainer}
-      />
-      <Filtered
-        filteredDate={filtered}
-        onChange={setFilterd}
-        className={css.psycContainer}
-      />
+      <div className={css.sorting}>
+        <Sorted
+          sortedDate={sorted}
+          onChange={setSorted}
+          className={css.psycContainer}
+        />
+        <Filtered
+          filteredDate={filtered}
+          onChange={setFilterd}
+          className={css.psycContainer}
+        />
+      </div>
       <ul>
         {filteredPsychologists.slice(0, count).map((psychologist) => (
           <li key={psychologist.id} className={css.psycItem}>
@@ -87,7 +89,12 @@ function PsychologistsPage() {
           </li>
         ))}
       </ul>
-      <button onClick={() => setCount((prev) => prev + 3)}>Load more</button>
+      <button
+        onClick={() => setCount((prev) => prev + 3)}
+        className={css.btnPage}
+      >
+        Load more
+      </button>
     </div>
   );
 }

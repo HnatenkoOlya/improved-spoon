@@ -22,7 +22,7 @@ function FavoritesButton({ psychologist }) {
   const isActive = isFavorites(psychologist.id);
 
   return (
-    <button onClick={handleClick}>
+    <button onClick={handleClick} className={css.favoriteBtn}>
       <img
         src={heart}
         alt="Heart icon"
