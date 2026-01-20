@@ -1,6 +1,10 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import { auth } from "../../../firebase/firebase.js";
+import { useContext } from "react";
+import { AuthContext } from "../../../context/AuthContext";
+import { createUser, updateProfile } from "firebase/auth";
 
 const schema = Yup.object().shape({
   name: Yup.string().min(2).max(90).required("Name is required"),
@@ -25,9 +29,18 @@ function RegisterForm({ onSuccess }) {
       password: "",
     },
   });
-  const onSubmit = (data) => {
-    console.log("register data", data);
-    onSuccess();
+  const { login } = useContext(AuthContext);
+
+  const onSubmit = async (data) => {
+    try {
+      const userCredential = await createUser(auth, data.email, data.password);
+      await updateProfile(userCredential.usser, {
+        displayName: data.name,
+      });
+      onSuccess();
+    } catch (error) {
+      console.error("Registration error:", error.message);
+    }
   };
 
   return (

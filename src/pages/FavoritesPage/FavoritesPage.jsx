@@ -7,7 +7,14 @@ function FavoritesPage() {
   const { favorites } = useContext(FavoritesContext);
   if (!favorites.length) {
     return (
-      <p className={css.container}>You haven't favorite psychologists yet</p>
+      <div>
+        <p className={css.container}>
+          You currently have no saved psychologists in your favorites, in order
+          to fill out this page, please register or log in. Thank you for
+          choosing us.
+        </p>
+        <img src="/images/img.jpg" alt="Thanks" className={css.img} />
+      </div>
     );
   }
 
