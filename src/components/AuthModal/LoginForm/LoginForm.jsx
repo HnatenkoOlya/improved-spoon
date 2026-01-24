@@ -3,6 +3,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthContext";
+import { auth } from "../../../firebase/firebase.js";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { toast } from "react-hot-toast";
 
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -26,9 +29,49 @@ function LoginForm({ onSuccess }) {
       password: "",
     },
   });
-  const onSubmit = (data) => {
+  /*const onSubmit = (data) => {
     login(data);
     onSuccess();
+  };*/
+
+  const onSubmit = async (data) => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password,
+      );
+
+      login({
+        uid: userCredential.user.uid,
+        email: userCredential.user.email,
+        name: userCredential.user.displayName,
+      });
+      /*await updateProfile(userCredential.user, {
+        displayName: data.name,
+      });*/
+
+      onSuccess();
+    } catch (error) {
+      switch (error.code) {
+        case "auth/user-not-found":
+          toast.error("User not found. Please register first.");
+          break;
+
+        case "auth/wrong-password":
+        case "auth/invalid-credential":
+        case "auth/invalid-login-credentials":
+          toast.error("Incorrect email or password");
+          break;
+
+        case "auth/too-many-requests":
+          toast.error("Too many attempts. Please try again later.");
+          break;
+
+        default:
+          toast.error("Login failed. Please try again.");
+      }
+    }
   };
 
   return (

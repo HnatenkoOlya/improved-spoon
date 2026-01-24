@@ -2,10 +2,23 @@ import { useContext } from "react";
 import { FavoritesContext } from "../../context/FavoritesContext";
 import PsychologistsCard from "../../components/PsychologistCard/PsychologistCard";
 import css from "./FavoritesPage.module.css";
+import { AuthContext } from "../../context/AuthContext";
 
 function FavoritesPage() {
   const { favorites } = useContext(FavoritesContext);
+  //const { Auth } = useContext(AuthContext);
   if (!favorites.length) {
+    return (
+      <div>
+        <p className={css.container}>
+          You currently have no saved psychologists in your favorites.
+        </p>
+        <img src="/images/img.jpg" alt="Thanks" className={css.img} />
+      </div>
+    );
+  }
+
+  /*if (!Auth) {
     return (
       <div>
         <p className={css.container}>
@@ -16,8 +29,7 @@ function FavoritesPage() {
         <img src="/images/img.jpg" alt="Thanks" className={css.img} />
       </div>
     );
-  }
-
+  }*/
   return (
     <ul className={css.container}>
       {favorites.map((p) => (

@@ -15,7 +15,7 @@ function Header({ onLogin, onRegister }) {
         <Navigation />
         {isAuth ? (
           <div>
-            <span className={css.userHeader}>{user.name}</span>
+            <span className={css.userHeader}>Hello, {user.name}</span>
             <button className={css.logoutBtn} onClick={logout}>
               Log out
             </button>
