@@ -1,13 +1,32 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { FavoritesContext } from "../../context/FavoritesContext";
 import PsychologistsCard from "../../components/PsychologistCard/PsychologistCard";
 import css from "./FavoritesPage.module.css";
+import { getFavorites } from "../../services/favorites";
 import { AuthContext } from "../../context/AuthContext";
 
 function FavoritesPage() {
   const { favorites } = useContext(FavoritesContext);
-  //const { Auth } = useContext(AuthContext);
-  if (!favorites.length) {
+  const { user } = useContext(AuthContext);
+  const [favoritesData, setFavoritesData] = useState([]);
+
+  useEffect(() => {
+    if (!user?.uid) return;
+    const fetchData = async () => {
+      const favoritePsych = await getFavorites(user.uid);
+      //console.log("PSYCHOLOGISTS FROM DB:", data);
+      setFavoritesData(favoritePsych);
+    };
+    fetchData();
+  }, [user]);
+
+  if (!user) {
+    return (
+      <p className={css.container}>Please log in to view your favorites.</p>
+    );
+  }
+
+  if (!favoritesData.length) {
     return (
       <div>
         <p className={css.container}>
@@ -32,7 +51,7 @@ function FavoritesPage() {
   }*/
   return (
     <ul className={css.container}>
-      {favorites.map((p) => (
+      {favoritesData.map((p) => (
         <PsychologistsCard key={p.id} psychologist={p} />
       ))}
     </ul>

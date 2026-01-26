@@ -17,4 +17,7 @@ const app = initializeApp(firebaseConfig);
 //const analytics = getAnalytics(app);
 
 export const auth = getAuth(app);
-export const db = getDatabase(app);
+export const db = getDatabase(
+  app,
+  "https://psychologist-services-78dcf-default-rtdb.europe-west1.firebasedatabase.app/",
+);

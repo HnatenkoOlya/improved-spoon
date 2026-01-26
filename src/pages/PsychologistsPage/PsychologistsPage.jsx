@@ -1,21 +1,32 @@
-import psychologists from "../../data/psychologists";
+//import psychologists from "../../data/psychologists";
 import PsychologistsCard from "../../components/PsychologistCard/PsychologistCard.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Sorted from "../../components/Sorted/Sorted.jsx";
 import Filtered from "../../components/Filtered/Filtered.jsx";
 import css from "./PsychologistsPage.module.css";
+import { getPsychologists } from "../../services/psychologists.js";
 
 function PsychologistsPage() {
   const [sorted, setSorted] = useState("Show all");
   const [filtered, setFilterd] = useState("Show all");
   const [count, setCount] = useState(3);
+  const [psychologistData, setPsychologistsData] = useState([]);
 
-  const psychologistsWithId = psychologists.map((p, index) => ({
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getPsychologists();
+      //console.log("PSYCHOLOGISTS FROM DB:", data);
+      setPsychologistsData(data);
+    };
+    fetchData();
+  }, []);
+
+  /*const psychologistsWithId = psychologists.map((p, index) => ({
     ...p,
     id: p.id ?? `${p.name}-${index}`,
-  }));
+  }));*/
 
-  const sortedPsychologists = psychologistsWithId.toSorted((a, b) => {
+  const sortedPsychologists = psychologistData.toSorted((a, b) => {
     if (sorted === "A to Z") {
       return a.name.localeCompare(b.name);
     }
