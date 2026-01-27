@@ -64,21 +64,6 @@ function PsychologistsPage() {
     return true;
   });
 
-  /*const visiblePsychologists = sortedPsychologists.filter((psychologist) => {
-    if (filtered === "Less than 130$") {
-      return psychologist.price_per_hour < 130;
-    }
-    if (filtered === "Greater than 120$") {
-      return psychologist.price_per_hour > 120;
-    }
-    if (filtered === "Not popular") {
-      return psychologist.rating < 4.7;
-    }
-    if (filtered === "Popular") {
-      return psychologist.rating > 4.75;
-    }
-    return true;
-  });*/
   return (
     <div className={css.psycContainer}>
       <div className={css.sorting}>

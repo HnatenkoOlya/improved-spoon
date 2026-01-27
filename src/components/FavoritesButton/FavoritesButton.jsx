@@ -6,8 +6,11 @@ import css from "./FavoritesButton.module.css";
 import { toast } from "react-hot-toast";
 
 function FavoritesButton({ psychologist }) {
-  const { isFavorites, toggleFavorites } = useContext(FavoritesContext);
+  const { favorites, addToFavorites, removeFromFavorites } =
+    useContext(FavoritesContext);
   const { isAuth } = useContext(AuthContext);
+
+  const isActive = favorites.includes(psychologist.id);
 
   const handleClick = () => {
     console.log("ADD TO FAVORITES:", psychologist.id, psychologist.name);
@@ -16,10 +19,13 @@ function FavoritesButton({ psychologist }) {
       toast.error("Please log in to add to favorites");
       return;
     }
-    toggleFavorites(psychologist);
+    if (isActive) {
+       removeFromFavorites(psychologist.id);
+    } else {
+      addToFavorites(psychologist.id)
+    }
+   
   };
-
-  const isActive = isFavorites(psychologist.id);
 
   return (
     <button onClick={handleClick} className={css.favoriteBtn}>
