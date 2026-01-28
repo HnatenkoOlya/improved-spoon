@@ -3,9 +3,5 @@
   border: none;
   cursor: pointer;
   width: 26px;
-height: 26px;
-
-}
-.heartActive {
-  color: #3470ff;
+  height: 26px;
 }

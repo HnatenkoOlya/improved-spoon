@@ -52,8 +52,11 @@ function PsychologistsCard({ psychologist }) {
           </button>
           {readMore && (
             <ul className={css.reviewsList}>
-              {psychologist.reviews.map((review, index) => (
-                <li key={index} className={css.reviewItem}>
+              {psychologist.reviews.map((review) => (
+                <li
+                  key={`${review.reviewer}-${review.rating}`}
+                  className={css.reviewItem}
+                >
                   <p className={css.reviewer}>{review.reviewer}</p>
                   <img src={star} alt="Star" className={css.starIcon} />
                   <p className={css.rating}>{review.rating}</p>

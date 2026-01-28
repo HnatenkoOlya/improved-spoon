@@ -1,4 +1,3 @@
-//import psychologists from "../../data/psychologists";
 import PsychologistsCard from "../../components/PsychologistCard/PsychologistCard.jsx";
 import { useEffect, useState } from "react";
 import Sorted from "../../components/Sorted/Sorted.jsx";
@@ -15,16 +14,10 @@ function PsychologistsPage() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getPsychologists();
-      //console.log("PSYCHOLOGISTS FROM DB:", data);
       setPsychologistsData(data);
     };
     fetchData();
   }, []);
-
-  /*const psychologistsWithId = psychologists.map((p, index) => ({
-    ...p,
-    id: p.id ?? `${p.name}-${index}`,
-  }));*/
 
   const sortedPsychologists = psychologistData.toSorted((a, b) => {
     if (sorted === "A to Z") {
@@ -85,12 +78,14 @@ function PsychologistsPage() {
           </li>
         ))}
       </ul>
-      <button
-        onClick={() => setCount((prev) => prev + 3)}
-        className={css.btnPage}
-      >
-        Load more
-      </button>
+      {count < filteredPsychologists.length && (
+        <button
+          onClick={() => setCount((prev) => prev + 3)}
+          className={css.btnPage}
+        >
+          Load more
+        </button>
+      )}
     </div>
   );
 }

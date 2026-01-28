@@ -10,13 +10,12 @@
 }
 
 .modal {
-  max-height: 90vh;
   overflow-y: auto;
   background: #fff;
-  border-radius: 20px 20px;
-  padding: 40px;
+  border-radius: 30px 30px;
+  padding: 64px;
   position: relative;
-  width: 500px;
+  max-width: 566px;
 }
 
 .btnClose {
@@ -25,6 +24,7 @@
   right: 20px;
   background: transparent;
   border: none;
-  font-size: 20px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
 }

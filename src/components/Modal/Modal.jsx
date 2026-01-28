@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import css from "./Modal.module.css";
+import close from "../../assets/icons/x.svg";
 
 function Modal({ onClose, children }) {
   useEffect(() => {
@@ -25,7 +26,7 @@ function Modal({ onClose, children }) {
     <div className={css.modalBackdrop} onClick={handleBackdropClose}>
       <div className={css.modal}>
         <button className={css.btnClose} onClick={onClose}>
-          X
+          <img src={close} alt="Close modal" />
         </button>
         {children}
       </div>

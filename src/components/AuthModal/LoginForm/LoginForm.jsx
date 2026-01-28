@@ -6,6 +6,7 @@ import { AuthContext } from "../../../context/AuthContext";
 import { auth } from "../../../firebase/firebase.js";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-hot-toast";
+import css from "./LoginForm.module.css";
 
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -29,10 +30,6 @@ function LoginForm({ onSuccess }) {
       password: "",
     },
   });
-  /*const onSubmit = (data) => {
-    login(data);
-    onSuccess();
-  };*/
 
   const onSubmit = async (data) => {
     try {
@@ -47,9 +44,6 @@ function LoginForm({ onSuccess }) {
         email: userCredential.user.email,
         name: userCredential.user.displayName,
       });
-      /*await updateProfile(userCredential.user, {
-        displayName: data.name,
-      });*/
 
       onSuccess();
     } catch (error) {
@@ -76,21 +70,29 @@ function LoginForm({ onSuccess }) {
 
   return (
     <div>
-      <h2>Log In</h2>
-      <p>
+      <h2 className={css.modalTitle}>Log In</h2>
+      <p className={css.modalText}>
         Welcome back! Please enter your credentials to access your account and
         continue your search for a psychologist.
       </p>
       <form onSubmit={handleSubmit(onSubmit)} validate={schema}>
-        <input type="text" {...register("email")} placeholder="Email" />
-        <p>{errors.email?.message}</p>
+        <input
+          type="text"
+          {...register("email")}
+          placeholder="Email"
+          className={css.input}
+        />
+        <p className={css.inputError}>{errors.email?.message}</p>
         <input
           type="password"
           {...register("password")}
           placeholder="Password"
+          className={css.input}
         />
-        <p>{errors.password?.message}</p>
-        <button type="submit">Log In</button>
+        <p className={css.inputError}>{errors.password?.message}</p>
+        <button type="submit" className={css.loginBtn}>
+          Log In
+        </button>
       </form>
     </div>
   );

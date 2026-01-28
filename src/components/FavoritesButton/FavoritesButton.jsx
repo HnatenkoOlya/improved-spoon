@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { FavoritesContext } from "../../context/FavoritesContext";
 import { AuthContext } from "../../context/AuthContext";
 import heart from "../../assets/icons/Property 1=Normal.svg";
+import heartHover from "../../assets/icons/Property 1=Hover.png";
 import css from "./FavoritesButton.module.css";
 import { toast } from "react-hot-toast";
 
@@ -20,19 +21,17 @@ function FavoritesButton({ psychologist }) {
       return;
     }
     if (isActive) {
-       removeFromFavorites(psychologist.id);
+      removeFromFavorites(psychologist.id);
     } else {
-      addToFavorites(psychologist.id)
+      addToFavorites(psychologist.id);
     }
-   
   };
 
   return (
     <button onClick={handleClick} className={css.favoriteBtn}>
       <img
-        src={heart}
+        src={isActive ? heartHover : heart}
         alt="Heart icon"
-        className={isActive ? css.heartActive : css.heartIcon}
       />
     </button>
   );
