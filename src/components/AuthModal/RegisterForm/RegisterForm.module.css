@@ -17,12 +17,12 @@
   color: #191a1580;
   margin-bottom: 40px;
 }
-.loginBtn {
+.signBtn {
   width: 438px;
   height: 52px;
   border-radius: 30px;
   gap: 8px;
-  padding: 16px 196px;
+  padding: 16px 189px;
   background-color: #3470ff;
   color: #fbfbfb;
   border: none;

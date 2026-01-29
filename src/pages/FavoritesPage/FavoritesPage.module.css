@@ -1,11 +1,15 @@
 .container {
-  margin-top: 105px;
+  margin-top: 125px;
   font-weight: 500;
   font-style: normal;
   font-size: 16px;
   line-height: 24px;
   color: #0d0d02;
   margin-left: 50px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.01em;
 }
 .img {
   display: block;
@@ -13,4 +17,30 @@
   width: 300px;
   border-radius: 30px;
   box-shadow: 9px 9px 9px rgba(0, 0, 0, 0.1);
+}
+.psycItem {
+  margin-bottom: 32px;
+}
+.sorting {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+.btnPage {
+  display: block;
+  margin: 0 auto;
+  padding: 14px 48px;
+  background-color: #3470ff;
+  color: #fbfbfb;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  width: 176px;
+  height: 48px;
+  letter-spacing: -0.01em;
+  margin-top: 64px;
+  margin-bottom: 50px;
 }

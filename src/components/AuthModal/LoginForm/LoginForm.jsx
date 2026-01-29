@@ -1,11 +1,13 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../context/AuthContext";
 import { auth } from "../../../firebase/firebase.js";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-hot-toast";
+import eyeOff from "../../../assets/icons/eye-off.svg";
+import eye from "../../../assets/icons/eye.svg";
 import css from "./LoginForm.module.css";
 
 const schema = Yup.object().shape({
@@ -18,6 +20,7 @@ const schema = Yup.object().shape({
 });
 
 function LoginForm({ onSuccess }) {
+  const [showPass, setShowPass] = useState(false);
   const { login } = useContext(AuthContext);
   const {
     register,
@@ -83,12 +86,24 @@ function LoginForm({ onSuccess }) {
           className={css.input}
         />
         <p className={css.inputError}>{errors.email?.message}</p>
-        <input
-          type="password"
-          {...register("password")}
-          placeholder="Password"
-          className={css.input}
-        />
+        <div className={css.wrapper}>
+          <input
+            type={showPass ? "text" : "password"}
+            {...register("password")}
+            placeholder="Password"
+            className={css.input}
+          />
+          <button
+            type="button"
+            className={css.eyeBtn}
+            onClick={() => setShowPass((prev) => !prev)}
+          >
+            <img
+              src={showPass ? eyeOff : eye}
+              alt={showPass ? "Hide password" : "Show password"}
+            />
+          </button>
+        </div>
         <p className={css.inputError}>{errors.password?.message}</p>
         <button type="submit" className={css.loginBtn}>
           Log In

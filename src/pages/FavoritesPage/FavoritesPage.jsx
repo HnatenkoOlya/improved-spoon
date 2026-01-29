@@ -20,7 +20,14 @@ function FavoritesPage() {
 
   if (!user) {
     return (
-      <p className={css.container}>Please log in to view your favorites.</p>
+      <div>
+        <p className={css.container}>
+          You currently have no saved psychologists in your favorites, in order
+          to fill out this page, please register or log in. Thank you for
+          choosing us.
+        </p>
+        <img src="/images/img.jpg" alt="Thanks" className={css.img} />
+      </div>
     );
   }
   const favoritesDataFiltered = favoritesData.filter((p) =>
@@ -37,22 +44,12 @@ function FavoritesPage() {
     );
   }
 
-  /*if (!Auth) {
-    return (
-      <div>
-        <p className={css.container}>
-          You currently have no saved psychologists in your favorites, in order
-          to fill out this page, please register or log in. Thank you for
-          choosing us.
-        </p>
-        <img src="/images/img.jpg" alt="Thanks" className={css.img} />
-      </div>
-    );
-  }*/
   return (
     <ul className={css.container}>
       {favoritesDataFiltered.map((p) => (
-        <PsychologistsCard key={p.id} psychologist={p} />
+       <li key={p.id} className={css.psycItem}>
+             <PsychologistsCard key={p.id} psychologist={p} />
+          </li>
       ))}
     </ul>
   );
