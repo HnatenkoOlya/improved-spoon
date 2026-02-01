@@ -1,0 +1,108 @@
+.modalTitle {
+  width: 472px;
+  height: 96px;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.modalText {
+  width: 472px;
+  height: 80px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+  color: #191a1580;
+  margin-bottom: 20px;
+}
+.img {
+  width: 44px;
+  height: 44px;
+  border-radius: 15px;
+}
+.psychologistInfo {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+.input {
+  width: 438px;
+  height: 52px;
+  border-width: 1px;
+  border-color: #191a151a;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 18px;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  padding-right: 40px;
+}
+.inputPhone {
+  width: 232px;
+  height: 52px;
+  border-width: 1px;
+  border-color: #191a151a;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 18px;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  padding-right: 40px;
+}
+.inputError {
+  margin-bottom: 18px;
+  padding-left: 10px;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: rgb(231, 21, 21);
+}
+.phoneDate {
+  display: flex;
+}
+.loginBtn {
+  width: 438px;
+  height: 52px;
+  border-radius: 30px;
+  gap: 8px;
+  padding: 16px 196px;
+  background-color: #3470ff;
+  color: #fbfbfb;
+  border: none;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+}
+.sortedSelect {
+  width: 232px;
+  height: 52px;
+  border-radius: 14px;
+  padding: 16px 18px;
+  background-color: #3470ff;
+  color: #fbfbfb;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  border: none;
+}
+.sortedOption {
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 14px;
+}

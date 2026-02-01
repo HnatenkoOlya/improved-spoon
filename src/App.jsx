@@ -8,9 +8,13 @@ import { useState } from "react";
 import AuthModal from "./components/AuthModal/AuthModal.jsx";
 import "./App.css";
 import { Toaster } from "react-hot-toast";
+import Loader from "./components/Loader/Loader.jsx";
+import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
 
 function App() {
   const [isAuth, setIsAuth] = useState(null);
+  const [isLoading, setLoading] = useState(false);
+  const [isError, setError] = useState(false);
   const routes = [
     {
       path: "/",
@@ -39,6 +43,8 @@ function App() {
           ))}
         </Routes>
         <Toaster />
+        {isLoading && <Loader />}
+        {isError && <ErrorPage />}
       </BrowserRouter>
     </div>
   );
