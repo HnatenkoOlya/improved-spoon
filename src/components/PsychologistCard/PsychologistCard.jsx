@@ -57,9 +57,11 @@ function PsychologistsCard({ psychologist }) {
                   key={`${review.reviewer}-${review.rating}`}
                   className={css.reviewItem}
                 >
-                  <p className={css.reviewer}>{review.reviewer}</p>
-                  <img src={star} alt="Star" className={css.starIcon} />
-                  <p className={css.rating}>{review.rating}</p>
+                  <div className={css.reviewHeader}>
+                    <p className={css.reviewer}>{review.reviewer}</p>
+                    <img src={star} alt="Star" className={css.starIconRew} />
+                    <p className={css.rating}>{review.rating}</p>
+                  </div>
                   <p className={css.comment}>{review.comment}</p>
                 </li>
               ))}
@@ -82,14 +84,18 @@ function PsychologistsCard({ psychologist }) {
         </div>
       </div>
       <div className={css.price}>
-        <img src={star} alt="Star" className={css.starIcon} />
-        <p>Rating: {psychologist.rating}</p>
-        <p>
-          Price/1 hour:{" "}
-          <span className={css.colorPrice}>
-            {psychologist.price_per_hour}$
-          </span>{" "}
-        </p>
+        <div className={css.ratingBlock}>
+          <img src={star} alt="Star" className={css.starIcon} />
+          <p>Rating: {psychologist.rating}</p>
+        </div>
+        <div className={css.priceBlock}>
+          <p>
+            Price/1 hour:{" "}
+            <span className={css.colorPrice}>
+              {psychologist.price_per_hour}$
+            </span>{" "}
+          </p>
+        </div>
         <FavoritesButton psychologist={psychologist} />
       </div>
     </div>
