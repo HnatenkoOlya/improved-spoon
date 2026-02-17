@@ -5,7 +5,7 @@ import Filtered from "../../components/Filtered/Filtered.jsx";
 import css from "./PsychologistsPage.module.css";
 import { getPsychologists } from "../../services/psychologists.js";
 
-function PsychologistsPage() {
+function PsychologistsPage({ setGlobalLoading }) {
   const [sorted, setSorted] = useState("Show all");
   const [filtered, setFilterd] = useState("Show all");
   const [count, setCount] = useState(3);
@@ -13,11 +13,20 @@ function PsychologistsPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getPsychologists();
-      setPsychologistsData(data);
+      try {
+        setGlobalLoading(true);
+
+        const data = await getPsychologists();
+        setPsychologistsData(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setGlobalLoading(false);
+      }
     };
+
     fetchData();
-  }, []);
+  }, [setGlobalLoading]);
 
   const sortedPsychologists = psychologistData.toSorted((a, b) => {
     if (sorted === "A to Z") {

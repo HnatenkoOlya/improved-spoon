@@ -5,18 +5,27 @@ import css from "./FavoritesPage.module.css";
 import { getPsychologists } from "../../services/psychologists";
 import { AuthContext } from "../../context/AuthContext";
 
-function FavoritesPage() {
+function FavoritesPage({ setGlobalLoading }) {
   const { favorites } = useContext(FavoritesContext);
   const { user } = useContext(AuthContext);
   const [favoritesData, setFavoritesData] = useState([]);
 
   useEffect(() => {
     const fetchAll = async () => {
-      const data = await getPsychologists();
-      setFavoritesData(data);
+      try {
+        setGlobalLoading(true);
+
+        const data = await getPsychologists();
+        setFavoritesData(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setGlobalLoading(false);
+      }
     };
+
     fetchAll();
-  }, []);
+  }, [setGlobalLoading]);
 
   if (!user) {
     return (
@@ -47,9 +56,9 @@ function FavoritesPage() {
   return (
     <ul className={css.container}>
       {favoritesDataFiltered.map((p) => (
-       <li key={p.id} className={css.psycItem}>
-             <PsychologistsCard key={p.id} psychologist={p} />
-          </li>
+        <li key={p.id} className={css.psycItem}>
+          <PsychologistsCard key={p.id} psychologist={p} />
+        </li>
       ))}
     </ul>
   );

@@ -19,11 +19,30 @@ function PsychologistsCard({ psychologist }) {
           alt={psychologist.name}
         />
       </div>
+
       <div className={css.allText}>
-        <div className={css.psycContent}>
-          <p className={css.title}>Psychologist</p>
-          <h3 className={css.name}>{psychologist.name}</h3>
+        <div className={css.headerRow}>
+          <div className={css.psycContent}>
+            <p className={css.title}>Psychologist</p>
+            <h3 className={css.name}>{psychologist.name}</h3>
+          </div>
+          <div className={css.price}>
+            <div className={css.ratingBlock}>
+              <img src={star} alt="Star" className={css.starIcon} />
+              <p>Rating: {psychologist.rating}</p>
+            </div>
+            <div className={css.priceBlock}>
+              <p>
+                Price/1 hour:{" "}
+                <span className={css.colorPrice}>
+                  {psychologist.price_per_hour}$
+                </span>{" "}
+              </p>
+            </div>
+            <FavoritesButton psychologist={psychologist} />
+          </div>
         </div>
+
         <div className={css.info}>
           <p className={css.experience}>
             <span className={css.experienceLabel}>Experience: </span>
@@ -82,21 +101,6 @@ function PsychologistsCard({ psychologist }) {
             </ul>
           )}
         </div>
-      </div>
-      <div className={css.price}>
-        <div className={css.ratingBlock}>
-          <img src={star} alt="Star" className={css.starIcon} />
-          <p>Rating: {psychologist.rating}</p>
-        </div>
-        <div className={css.priceBlock}>
-          <p>
-            Price/1 hour:{" "}
-            <span className={css.colorPrice}>
-              {psychologist.price_per_hour}$
-            </span>{" "}
-          </p>
-        </div>
-        <FavoritesButton psychologist={psychologist} />
       </div>
     </div>
   );

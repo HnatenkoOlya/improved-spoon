@@ -3,6 +3,7 @@
   background-color: #fbfbfb;
   border-radius: 24px;
   padding: 24px 24px;
+  align-items: flex-start;
 }
 .imgDiv {
   margin-right: 24px;
@@ -66,7 +67,6 @@
   line-height: 20px;
   color: #191a1580;
   margin-bottom: 14px;
-  width: 992px;
 }
 .readMoreButton {
   background: none;
@@ -81,10 +81,10 @@
 }
 .price {
   display: flex;
-  margin-left: auto;
   height: 24px;
   margin-right: 10px;
-  width: 294px;
+  align-items: center;
+  flex-shrink: 0;
 }
 .ratingBlock {
   display: flex;
@@ -165,4 +165,13 @@
   align-items: center;
   gap: 8px;
   margin-bottom: 8px;
+}
+.allText {
+  flex: 1;
+  min-width: 0;
+}
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }

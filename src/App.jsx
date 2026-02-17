@@ -14,8 +14,48 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
 function App() {
   const [isAuth, setIsAuth] = useState(null);
   const [isLoading, setLoading] = useState(false);
-  const [isError, setError] = useState(false);
-  const routes = [
+
+  return (
+    <div className="container">
+      <BrowserRouter>
+        <Header
+          onLogin={() => setIsAuth("login")}
+          onRegister={() => setIsAuth("register")}
+        />
+        {isAuth && <AuthModal mode={isAuth} onClose={() => setIsAuth(null)} />}
+        <Routes>
+          <Route
+            path="/"
+            element={<HomePage setGlobalLoading={setLoading} />}
+          />
+
+          <Route
+            path="/psychologists"
+            element={<PsychologistsPage setGlobalLoading={setLoading} />}
+          />
+
+          <Route
+            path="/favorites"
+            element={<FavoritesPage setGlobalLoading={setLoading} />}
+          />
+
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+        <Toaster />
+        {isLoading && <Loader />}
+      </BrowserRouter>
+    </div>
+  );
+}
+
+export default App;
+/*   <Routes>
+          {routes.map((route) => (
+            <Route path={route.path} element={route.element}></Route>
+          ))}
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+        const routes = [
     {
       path: "/",
       element: <HomePage />,
@@ -29,25 +69,4 @@ function App() {
       element: <FavoritesPage />,
     },
   ];
-  return (
-    <div className="container">
-      <BrowserRouter>
-        <Header
-          onLogin={() => setIsAuth("login")}
-          onRegister={() => setIsAuth("register")}
-        />
-        {isAuth && <AuthModal mode={isAuth} onClose={() => setIsAuth(null)} />}
-        <Routes>
-          {routes.map((route) => (
-            <Route path={route.path} element={route.element}></Route>
-          ))}
-        </Routes>
-        <Toaster />
-        {isLoading && <Loader />}
-        {isError && <ErrorPage />}
-      </BrowserRouter>
-    </div>
-  );
-}
-
-export default App;
+        */
