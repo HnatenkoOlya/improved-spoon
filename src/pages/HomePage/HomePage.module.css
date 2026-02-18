@@ -63,3 +63,78 @@
 .divImage {
   margin-top: 78px;
 }
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .divHome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 98px;
+  }
+  .divContent {
+    width: 300px;
+  }
+  .title {
+    font-size: 50px;
+    line-height: 50px;
+    margin: 0;
+  }
+  .span {
+    font-size: 50px;
+    line-height: 50px;
+  }
+  .p {
+    margin-bottom: 20px;
+  }
+  .link {
+    width: 235px;
+    height: 50px;
+    margin-left: 20px;
+  }
+  .divImage img {
+    width: 300px;
+    height: 350px;
+    border-radius: 10px;
+  }
+  .divImage {
+    margin-top: 10px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+  .divHome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 98px;
+  }
+  .divContent {
+    width: 600px;
+  }
+  .title {
+    font-size: 50px;
+    line-height: 50px;
+    margin: 0;
+  }
+  .span {
+    font-size: 50px;
+    line-height: 50px;
+  }
+  .p {
+    margin-bottom: 20px;
+  }
+  .link {
+    width: 300px;
+    height: 60px;
+    margin-left: 70px;
+  }
+  .divImage img {
+    width: 400px;
+    height: 426px;
+    border-radius: 10px;
+  }
+  .divImage {
+    margin-top: 10px;
+    margin-right: 40px;
+  }
+}
