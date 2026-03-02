@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import AuthButtons from "../AuthButtons/AuthButtons";
 import Navigation from "../Navigation/Navigation";
 import css from "./Header.module.css";
@@ -6,13 +6,38 @@ import { AuthContext } from "../../context/AuthContext";
 
 function Header({ onLogin, onRegister }) {
   const { isAuth, user, logout } = useContext(AuthContext);
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleOpen = () => {
+    setIsOpen((prev) => !prev);
+  };
   return (
     <header className={css.header}>
       <div className={css.headContent}>
         <a href="/" className={css.logo}>
           <span className={css.span}>psychologists.</span>services
         </a>
-        <Navigation />
+        <button className={css.burger} onClick={toggleOpen}>
+          ☰
+        </button>
+        <div className={`${css.navWrapper} ${isOpen ? css.open : ""}`}>
+          <Navigation />
+          {isAuth ? (
+            <div className={css.mobileAuth}>
+              <span>Hello, {user.name}</span>
+              <button onClick={logout} className={css.logoutBtn}>
+                Log out
+              </button>
+            </div>
+          ) : (
+            <AuthButtons onLogin={onLogin} onRegister={onRegister} />
+          )}
+        </div>
+      </div>
+    </header>
+  );
+}
+export default Header;
+/* <Navigation />
         {isAuth ? (
           <div>
             <span className={css.userHeader}>Hello, {user.name}</span>
@@ -22,9 +47,4 @@ function Header({ onLogin, onRegister }) {
           </div>
         ) : (
           <AuthButtons onLogin={onLogin} onRegister={onRegister} />
-        )}
-      </div>
-    </header>
-  );
-}
-export default Header;
+        )}*/

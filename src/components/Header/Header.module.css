@@ -45,6 +45,7 @@
   letter-spacing: -0.01em;
   color: black;
   cursor: pointer;
+  margin-left: 28px;
 }
 .userHeader {
   margin-right: 28px;
@@ -54,4 +55,46 @@
   line-height: 20px;
   letter-spacing: -0.01em;
   color: black;
+}
+.burger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.navWrapper {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+    margin-left: auto;
+  }
+
+  .navWrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    transform: translateY(-150%);
+    transition: transform 0.3s ease;
+  }
+
+  .open {
+    transform: translateY(0);
+  }
+
+  .headContent {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .header {
+    padding: 16px 20px;
+  }
 }

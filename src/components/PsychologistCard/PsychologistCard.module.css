@@ -201,4 +201,12 @@
     color: #191a1580;
     margin-bottom: 14px;
   }
+  .price {
+    display: block;
+    height: 24px;
+    margin-right: 10px;
+    align-items: center;
+    flex-shrink: 0;
+    margin-bottom: 20px;
+  }
 }

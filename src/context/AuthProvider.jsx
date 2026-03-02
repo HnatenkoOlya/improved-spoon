@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { AuthContext } from "./AuthContext";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 
 export const AuthProvider = ({ children }) => {
@@ -38,7 +38,8 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("authUser", JSON.stringify(userData));
   };
 
-  const logout = () => {
+  const logout = async () => {
+    await signOut(auth);
     setUser(null);
     localStorage.removeItem("authUser");
   };

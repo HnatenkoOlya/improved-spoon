@@ -34,6 +34,7 @@
     margin-bottom: 32px;
     justify-content: space-around;
     padding-left: 40px;
+    flex-wrap: wrap;
   }
   .psycItem {
     padding-left: 40px;
