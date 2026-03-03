@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import toast from "react-hot-toast";
@@ -16,6 +18,7 @@ const schema = Yup.object().shape({
 });
 
 function AppointmentForm({ onSuccess, psychologist }) {
+  const { isAuth } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -33,6 +36,10 @@ function AppointmentForm({ onSuccess, psychologist }) {
   });
 
   const onSubmit = (data) => {
+    if (!isAuth) {
+      toast.error("Please log in first");
+      return;
+    }
     console.log({
       ...data,
       psychologistId: psychologist.id,

@@ -1,4 +1,7 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import css from "./PsychologistCard.module.css";
 import Modal from "../Modal/Modal.jsx";
 import AppointmentForm from "../AppointmentForm/AppointmentForm.jsx";
@@ -9,6 +12,15 @@ import star from "../../assets/icons/Star 2.svg";
 function PsychologistsCard({ psychologist }) {
   const [readMore, setReadMore] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const { isAuth } = useContext(AuthContext);
+
+  const handleOpenModal = () => {
+    if (!isAuth) {
+      toast.error("Please log in first");
+      return;
+    }
+    setIsOpen(true);
+  };
 
   return (
     <div className={css.psychologistCard}>
@@ -70,24 +82,23 @@ function PsychologistsCard({ psychologist }) {
             {readMore ? "Read less" : "Read more"}
           </button>
           {readMore && (
-            <ul className={css.reviewsList}>
-              {psychologist.reviews.map((review) => (
-                <li
-                  key={`${review.reviewer}-${review.rating}`}
-                  className={css.reviewItem}
-                >
-                  <div className={css.reviewHeader}>
-                    <p className={css.reviewer}>{review.reviewer}</p>
-                    <img src={star} alt="Star" className={css.starIconRew} />
-                    <p className={css.rating}>{review.rating}</p>
-                  </div>
-                  <p className={css.comment}>{review.comment}</p>
-                </li>
-              ))}
-              <button
-                onClick={() => setIsOpen(true)}
-                className={css.appointmentBtn}
-              >
+            <div>
+              <ul className={css.reviewsList}>
+                {psychologist.reviews?.map((review) => (
+                  <li
+                    key={`${review.reviewer}-${review.rating}`}
+                    className={css.reviewItem}
+                  >
+                    <div className={css.reviewHeader}>
+                      <p className={css.reviewer}>{review.reviewer}</p>
+                      <img src={star} alt="Star" className={css.starIconRew} />
+                      <p className={css.rating}>{review.rating}</p>
+                    </div>
+                    <p className={css.comment}>{review.comment}</p>
+                  </li>
+                ))}
+              </ul>
+              <button onClick={handleOpenModal} className={css.appointmentBtn}>
                 Make an appointment
               </button>
               {isOpen && (
@@ -98,7 +109,7 @@ function PsychologistsCard({ psychologist }) {
                   />
                 </Modal>
               )}
-            </ul>
+            </div>
           )}
         </div>
       </div>
