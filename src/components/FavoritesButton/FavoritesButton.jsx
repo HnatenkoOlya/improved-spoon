@@ -14,8 +14,6 @@ function FavoritesButton({ psychologist }) {
   const isActive = favorites.includes(psychologist.id);
 
   const handleClick = () => {
-    console.log("ADD TO FAVORITES:", psychologist.id, psychologist.name);
-
     if (!isAuth) {
       toast.error("Please log in to add to favorites");
       return;
@@ -29,10 +27,7 @@ function FavoritesButton({ psychologist }) {
 
   return (
     <button onClick={handleClick} className={css.favoriteBtn}>
-      <img
-        src={isActive ? heartHover : heart}
-        alt="Heart icon"
-      />
+      <img src={isActive ? heartHover : heart} alt="Heart icon" />
     </button>
   );
 }

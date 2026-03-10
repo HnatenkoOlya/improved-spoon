@@ -37,10 +37,6 @@ export const FavoritesProvider = ({ children }) => {
     fetchFavorites();
   }, [user]);
 
-  /*useEffect(() => {
-    console.log("FAVORITES CONTEXT:", favorites);
-  }, [favorites]);*/
-
   const addToFavorites = async (psychologistId) => {
     if (!user?.uid) return;
     await addFavorites(user.uid, psychologistId);

@@ -35,16 +35,11 @@ function AppointmentForm({ onSuccess, psychologist }) {
     },
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     if (!isAuth) {
       toast.error("Please log in first");
       return;
     }
-    console.log({
-      ...data,
-      psychologistId: psychologist.id,
-      psychologistName: psychologist.name,
-    });
     toast.success("Appointment successfully created!");
     onSuccess();
   };

@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import AuthButtons from "../AuthButtons/AuthButtons";
 import Navigation from "../Navigation/Navigation";
+import { Link } from "react-router-dom";
 import css from "./Header.module.css";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -13,9 +14,10 @@ function Header({ onLogin, onRegister }) {
   return (
     <header className={css.header}>
       <div className={css.headContent}>
-        <a href="/" className={css.logo}>
+        <Link to="/" className={css.logo}>
           <span className={css.span}>psychologists.</span>services
-        </a>
+        </Link>
+
         <button className={css.burger} onClick={toggleOpen}>
           ☰
         </button>
@@ -47,4 +49,5 @@ export default Header;
           </div>
         ) : (
           <AuthButtons onLogin={onLogin} onRegister={onRegister} />
-        )}*/
+        )}
+           <a href="/" className={css.logo}>*/
